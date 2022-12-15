@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp5
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form2(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+         "      Welcome" + " My Precious player." + Environment.NewLine +
+         "      There are 50 Movie Lines" + " for you to identify" +  Environment.NewLine +
+         "      25 English movies" + " and 25 Tagalog movies." + Environment.NewLine +
+         "      Goodluck!");
+
+            Form2 f1 = new Form2();
+            f1.Show();
+        }
+
+    }
+}
