@@ -1,0 +1,758 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp5
+{
+    
+    public partial class Form2 : Form
+    {
+
+        // quiz game variable
+
+
+        int correctAnswer;
+        int questionNumber = 1;
+        int score;
+        int percentage;
+        int totalQuestions;
+
+
+
+        public Form2()
+        {
+            InitializeComponent();
+
+            askQuestion(questionNumber);
+
+            totalQuestions = 50;
+        }
+
+        private void checkAnswerEvent(object sender, EventArgs e)
+        {
+            var senderObject = (Button)sender;
+
+            int buttonTag = Convert.ToInt32(senderObject.Tag);
+
+            if(buttonTag == correctAnswer)
+            {
+                score++;
+            }
+
+            if(questionNumber == totalQuestions)
+            {
+                // work out the percentage
+
+                percentage = (int)Math.Round((double)(score * 100)/ totalQuestions);
+
+
+                MessageBox.Show(
+                    "Game Ended" + Environment.NewLine +
+                    "You have answered " + score + " questions correctly." + Environment.NewLine +
+                    "Your total percentage is " + percentage + "%" + Environment.NewLine +
+                    "Thank you for playing"
+                    );
+
+                score = 0;
+                questionNumber = 0;
+                askQuestion(questionNumber);  
+
+
+            }
+
+
+
+                questionNumber++;
+            askQuestion(questionNumber);
+        }
+
+        private void askQuestion(int qnum)
+        {
+
+
+            switch(qnum)
+            {
+                case 1:
+                    pictureBox1.Image = Properties.Resources.images__1_;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Star Wars";
+                    button2.Text = "Avengers";
+                    button3.Text = "Lord of the Rings";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 2:
+                    pictureBox1.Image = Properties.Resources.titanic;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Spiderman";
+                    button2.Text = "Fast and the Furious";
+                    button3.Text = "Titanic";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 3:
+                    pictureBox1.Image = Properties.Resources.terminator;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Deadpool";
+                    button2.Text = "Terminator";
+                    button3.Text = "The Hobbit";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 4:
+                    pictureBox1.Image = Properties.Resources.dory;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Moana";
+                    button2.Text = "Cars";
+                    button3.Text = "Finding Dory";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 5:
+                    pictureBox1.Image = Properties.Resources.terminator_2;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Hunger Games";
+                    button2.Text = "Terminator 2";
+                    button3.Text = "Deadpool";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 6:
+                    pictureBox1.Image = Properties.Resources.woody;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Toy Story";
+                    button2.Text = "Finding Nemo";
+                    button3.Text = "Finding Dory";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 7:
+                    pictureBox1.Image = Properties.Resources.Frankenstein;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Maze Runner";
+                    button2.Text = "Frankenstein";
+                    button3.Text = "Divergent";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 8:
+                    pictureBox1.Image = Properties.Resources.spiderman;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Spiderman";
+                    button2.Text = "Dare Devil";
+                    button3.Text = "Superman";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 9:
+                    pictureBox1.Image = Properties.Resources.ratatouille;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Inside Out";
+                    button2.Text = "Coco";
+                    button3.Text = "Ratatouille";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 10:
+                    pictureBox1.Image = Properties.Resources.mulan;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Up";
+                    button2.Text = "Mulan";
+                    button3.Text = "Aladdin";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 11:
+                    pictureBox1.Image = Properties.Resources.cars;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Cars";
+                    button2.Text = "Soul";
+                    button3.Text = "Wall E";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 12:
+                    pictureBox1.Image = Properties.Resources.toy_story;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Toy Story";
+                    button2.Text = "Brave";
+                    button3.Text = "Luca";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 13:
+                    pictureBox1.Image = Properties.Resources.The_Incredibles;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Monsters Inc";
+                    button2.Text = "The Incredibles";
+                    button3.Text = "Shrek";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 14:
+                    pictureBox1.Image = Properties.Resources.Frozen;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Jack Frost";
+                    button2.Text = "Frozen";
+                    button3.Text = "Frozen 2";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 15:
+                    pictureBox1.Image = Properties.Resources.Frozen_1_;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Frozen";
+                    button2.Text = "Jack Frost";
+                    button3.Text = "Frozen 2";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 16:
+                    pictureBox1.Image = Properties.Resources.Brave;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Lion King";
+                    button2.Text = "Brave";
+                    button3.Text = "Madagscar";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 17:
+                    pictureBox1.Image = Properties.Resources.Moana;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Moana";
+                    button2.Text = "Tangeld";
+                    button3.Text = "Monsters University";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 18:
+                    pictureBox1.Image = Properties.Resources.Avengers_Endgame;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Avengers: Endgame";
+                    button2.Text = "Avengers: Age of Ultron";
+                    button3.Text = "Avengers: Infinity War";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 19:
+                    pictureBox1.Image = Properties.Resources.White_Chicks;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Despicable Me";
+                    button2.Text = "Little Man";
+                    button3.Text = "White Chicks";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 20:
+                    pictureBox1.Image = Properties.Resources.Fast___Furious_6;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Fast & Furious";
+                    button2.Text = "Fast & Furious 6";
+                    button3.Text = "2 Fast 2 Furious";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 21:
+                    pictureBox1.Image = Properties.Resources.days;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "365 Days";
+                    button2.Text = "Pitch Perfect";
+                    button3.Text = "The Dictator";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 22:
+                    pictureBox1.Image = Properties.Resources.Madagascar;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Rango";
+                    button2.Text = "Cars";
+                    button3.Text = "Madagascar";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 23:
+                    pictureBox1.Image = Properties.Resources.Pitch_Perfect;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Pitch Perfect";
+                    button2.Text = "Central Intelligence";
+                    button3.Text = "Warm Bodies";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 24:
+                    pictureBox1.Image = Properties.Resources.Back_to_the_Future_2;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Midnight Sun";
+                    button2.Text = "Back to the Future 2";
+                    button3.Text = "Kissing Booth";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 25:
+                    pictureBox1.Image = Properties.Resources.Home_Alone;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Home Alone";
+                    button2.Text = "Jumanji";
+                    button3.Text = "Venom";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 26:
+                    pictureBox1.Image = Properties.Resources.The_How_s_of_Us;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "The How's of Us";
+                    button2.Text = "She's Dating the Gangster";
+                    button3.Text = "Crazy Beautiful You";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 27:
+                    pictureBox1.Image = Properties.Resources.Starting_Over_Again;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Last Night";
+                    button2.Text = "Northern Lights";
+                    button3.Text = "Starting Over Again";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 28:
+                    pictureBox1.Image = Properties.Resources.The_Breakup_Playlist;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Maybe this Time";
+                    button2.Text = "The Breakup Playlist";
+                    button3.Text = "Unforgettable";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 29:
+                    pictureBox1.Image = Properties.Resources.Milan;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Got 2 Believe";
+                    button2.Text = "Milan";
+                    button3.Text = "Dubai";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 30:
+                    pictureBox1.Image = Properties.Resources.Labs_Kita_Okey_ka_lang;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Hey Babe!";
+                    button2.Text = "Labs Kita Okey Ka Lang?";
+                    button3.Text = "Home Along Da Riber";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 31:
+                    pictureBox1.Image = Properties.Resources.Bobbie;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Four Sister and a Wedding";
+                    button2.Text = "The Love Affair";
+                    button3.Text = "The Mistress";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 32:
+                    pictureBox1.Image = Properties.Resources.One_More_Chance;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Just the 3 of Us";
+                    button2.Text = "Finally Found Someone";
+                    button3.Text = "One More Chance";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 33:
+                    pictureBox1.Image = Properties.Resources.Bata__Bata_Paano_ka_Ginawa;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "The Healing";
+                    button2.Text = "Bata, Bata, Paano ka Ginawa?";
+                    button3.Text = "In my Life";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 34:
+                    pictureBox1.Image = Properties.Resources.Nora_Aunor;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Minsa'y Isang Gamu-gamo";
+                    button2.Text = "Himala";
+                    button3.Text = "Ikaw ay Akin";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 35:
+                    pictureBox1.Image = Properties.Resources.Heneral_Luna;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Heneral Luna";
+                    button2.Text = "Kuwaresma";
+                    button3.Text = "Reroute";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 36:
+                    pictureBox1.Image = Properties.Resources.Madastra;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Maging Sino Ka Man";
+                    button2.Text = "Unexpectedly Yours";
+                    button3.Text = "Madrasta";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 37:
+                    pictureBox1.Image = Properties.Resources.My_Ex_and_Whys;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Just The Way You Are";
+                    button2.Text = "My Ex and Whys";
+                    button3.Text = "Must be Love";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 38:
+                    pictureBox1.Image = Properties.Resources.Minsan_Lang_Kita_Iibigin;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Minsan Lang Kita Iibigan";
+                    button2.Text = "Tataynic";
+                    button3.Text = "Bes and the Beshies";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 39:
+                    pictureBox1.Image = Properties.Resources.Maybe_this_Time;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "You're My Boss";
+                    button2.Text = "Maybe This Time";
+                    button3.Text = "A Moment in Time";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 40:
+                    pictureBox1.Image = Properties.Resources.Barcelona;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Can't Help Falling in Love";
+                    button2.Text = "Hello Love Goodbye";
+                    button3.Text = "Barcelona a Love Untold";
+
+                    correctAnswer = 3;
+
+
+                    break;
+                case 41:
+                    pictureBox1.Image = Properties.Resources.Unmarried_Wife;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Unmarried Wife";
+                    button2.Text = "Ang Dalawang Mrs. Reyes";
+                    button3.Text = "Exes Baggage";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 42:
+                    pictureBox1.Image = Properties.Resources.Hello__Love__Goodbye;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Sisterakas";
+                    button2.Text = "Hello Love Goodbye";
+                    button3.Text = "Pagpag: Siyam na Buhay";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 43:
+                    pictureBox1.Image = Properties.Resources.No_Other_Woman;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "No Other Woman";
+                    button2.Text = "Humanap Ka ng Panget";
+                    button3.Text = "Feng Shui 2";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 44:
+                    pictureBox1.Image = Properties.Resources.A_Second_Chance;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "One More Chance";
+                    button2.Text = "A Second Chance";
+                    button3.Text = "First Love";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 45:
+                    pictureBox1.Image = Properties.Resources.One_More_Try;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "One More Try";
+                    button2.Text = "Unbreakable";
+                    button3.Text = "Love or Money";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 46:
+                    pictureBox1.Image = Properties.Resources.Bituing_Walang_Ningning;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Caregiver";
+                    button2.Text = "Bituing Walang Ningning";
+                    button3.Text = "Dear Heart";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 47:
+                    pictureBox1.Image = Properties.Resources.A_very_Special_Love;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "A Very Special Love";
+                    button2.Text = "Unofficialy Yours";
+                    button3.Text = "The Trial";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 48:
+                    pictureBox1.Image = Properties.Resources.Alex;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "The Third Party";
+                    button2.Text = "Four Sisters and a Wedding";
+                    button3.Text = "Everything About Her";
+
+                    correctAnswer = 2;
+
+
+                    break;
+                case 49:
+                    pictureBox1.Image = Properties.Resources.Kita_kita;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Kita-kita";
+                    button2.Text = "Kusina Kings";
+                    button3.Text = "The Barker";
+
+                    correctAnswer = 1;
+
+
+                    break;
+                case 50:
+                    pictureBox1.Image = Properties.Resources.It_Takes_a_Man_and_a_Woman;
+
+                    label1.Text = "From what movie does this line was said?";
+
+                    button1.Text = "Catch Me, I'm in Love";
+                    button2.Text = "Miss Granny";
+                    button3.Text = "It Takes a Man and a Woman";
+
+                    correctAnswer = 3;
+
+
+                    break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+        }
+    }
+}
